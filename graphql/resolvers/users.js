@@ -54,15 +54,19 @@ module.exports = {
     async register(
       _,
       {
-        registerInput: { username, email, password, confirmPassword }
+        registerInput: { fullname, shortbio, username, email, password, confirmPassword, userinterest, social }
       }
     ) {
       // Validate user data
       const { valid, errors } = validateRegisterInput(
+        fullname,
+        shortbio,
         username,
         email,
         password,
-        confirmPassword
+        confirmPassword,
+        userinterest,
+        social
       );
       if (!valid) {
         throw new UserInputError('Errors', { errors });

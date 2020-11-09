@@ -1,10 +1,20 @@
 module.exports.validateRegisterInput = (
+    fullname,
+    shortbio,
     username,
     email,
     password,
-    confirmPassword
+    confirmPassword,
+    userinterest,
+    social
   ) => {
     const errors = {};
+    if (fullname.trim() === '') {
+      errors.fullname = 'Fullname must not be empty';
+    }
+    if (shortbio.trim() === '') {
+      errors.shortbio = 'shortbio must not be empty';
+    }
     if (username.trim() === '') {
       errors.username = 'Username must not be empty';
     }
@@ -20,6 +30,12 @@ module.exports.validateRegisterInput = (
       errors.password = 'Password must not empty';
     } else if (password !== confirmPassword) {
       errors.confirmPassword = 'Passwords must match';
+    }
+    if (userinterest.trim() === '') {
+      errors.userinterest = 'userinterest must not be empty';
+    }
+    if (social.trim() === '') {
+      errors.social = 'social must not be empty';
     }
   
     return {

@@ -30,9 +30,13 @@ module.exports = gql`
     createdAt: String!
   }
   input RegisterInput {
+    fullname: String!
+    shortbio: String!
     username: String!
     password: String!
     confirmPassword: String!
+    userinterest: String!
+    social: String!
     email: String!
   }
   type Query {
